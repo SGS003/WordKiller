@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wordkiller"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <!-- 声明widget对应的AppWidgetProvider -->
+        <receiver android:name="com.example.service.WidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_config" />
+        </receiver>
+
+        <service android:name="com.example.service.TestService1" >
+            <intent-filter>
+                <action android:name="com.example.service.TEST_SERVICE1" />
+            </intent-filter>
+        </service>
+        
+        <service android:name="com.example.service.TaskListService" >
+            <intent-filter>
+                <action android:name="com.example.service.TASK_LIST_SERVICE" />
+            </intent-filter>
+        </service>
+        
+        <service android:name="com.example.service.WidgetService" >
+            <intent-filter>
+                <action android:name="com.example.service.WIDGET_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".ListActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TaskListActivity"
+            android:label="@string/title_activity_task_list" >
+        </activity>
+    </application>
+
+</manifest>
